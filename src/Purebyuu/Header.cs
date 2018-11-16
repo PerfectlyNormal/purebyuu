@@ -44,7 +44,7 @@ namespace Purebyuu
             data.RemoveRange(0, index);
             return data.ToArray();
         }
-        
+
         private static int ReadDiffHeader(byte[] input, int pos, int size)
         {
             var data = input.Skip(pos + 3).Take(size).ToList();
@@ -52,7 +52,7 @@ namespace Purebyuu
 
             var index = data.FindIndex(b => b != 0x2B && b != 0x2D && b != 0x20); // Skip sign and spaces
             data.RemoveRange(0, index);
-            
+
             var val = Convert.ToInt32(Encoding.ASCII.GetString(data.ToArray()));
             return val * sign;
         }
@@ -71,36 +71,37 @@ namespace Purebyuu
 
         /// <summary>
         /// CO or colors, a 3 digit number padded by leading zeros.
-        /// This is the number of color change records in the file. 
+        /// This is the number of color change records in the file.
         /// </summary>
         public int Colors { get; set; }
 
         /// <summary>
-        /// Positive X extent in centimeters, a 5 digit non-decimal number padded by leading zeros. 
+        /// Positive X extent in centimeters, a 5 digit non-decimal number padded by leading zeros.
         /// </summary>
         public int XExtents { get; set; }
+
         /// <summary>
-        /// Negative X extent in centimeters, a 5 digit non-decimal number padded by leading zeros. 
+        /// Negative X extent in centimeters, a 5 digit non-decimal number padded by leading zeros.
         /// </summary>
         public int NegXExtents { get; set; }
 
         /// <summary>
-        /// Positive Y extent in centimeters, a 5 digit non-decimal number padded by leading zeros. 
+        /// Positive Y extent in centimeters, a 5 digit non-decimal number padded by leading zeros.
         /// </summary>
         public int YExtents { get; set; }
 
         /// <summary>
-        /// Negative Y extent in centimeters, a 5 digit non-decimal number padded by leading zeros. 
+        /// Negative Y extent in centimeters, a 5 digit non-decimal number padded by leading zeros.
         /// </summary>
         public int NegYExtents { get; set; }
 
         /// <summary>
-        /// AX should express the relative coordinates of the last point from the start point in 0.1 mm. If the start and last points are the same, the coordinates are (0,0). 
+        /// AX should express the relative coordinates of the last point from the start point in 0.1 mm. If the start and last points are the same, the coordinates are (0,0).
         /// </summary>
         public int XDifference { get; set; }
 
         /// <summary>
-        /// AY should express the relative coordinates of the last point from the start point in 0.1 mm. If the start and last points are the same, the coordinates are (0,0). 
+        /// AY should express the relative coordinates of the last point from the start point in 0.1 mm. If the start and last points are the same, the coordinates are (0,0).
         /// </summary>
         public int YDifference { get; set; }
 
@@ -108,7 +109,7 @@ namespace Purebyuu
         /// MX should express coordinates of the last point of the previous file for a multi-volume design.
         /// A multi-volume design means a design consisted of two or more files.
         /// This was used for huge designs that can not be stored in a single paper tape roll.
-        /// It is not used so much (almost never) nowadays. 
+        /// It is not used so much (almost never) nowadays.
         /// </summary>
         public int MultiDesignStartX { get; set; }
 
@@ -116,12 +117,12 @@ namespace Purebyuu
         /// MY should express coordinates of the last point of the previous file for a multi-volume design.
         /// A multi-volume design means a design consisted of two or more files.
         /// This was used for huge designs that can not be stored in a single paper tape roll.
-        /// It is not used so much (almost never) nowadays. 
+        /// It is not used so much (almost never) nowadays.
         /// </summary>
         public int MultiDesignStartY { get; set; }
 
         /// <summary>
-        /// Previous Design (PD). PD is also storing some information for multi-volume design. Modernly this is always "******" 
+        /// Previous Design (PD). PD is also storing some information for multi-volume design. Modernly this is always "******"
         /// </summary>
         public string PreviousDesign { get; set; }
     }
