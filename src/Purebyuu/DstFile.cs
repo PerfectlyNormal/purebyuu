@@ -16,7 +16,7 @@ namespace Purebyuu
         }
 
         public Header Header { get; internal set; }
-        public Pattern Body { get; internal set; }
+        public Pattern Body { get; private set; }
 
         public void Read()
         {
