@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purebyuu", "src\Purebyuu\Purebyuu.csproj", "{ECCD4217-033F-4651-9663-1CD5BA7ACAF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurebyuuUtils", "src\PurebyuuUtils\PurebyuuUtils.csproj", "{CE3E902C-9E35-49EE-B9E1-9963AB5E9E95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECCD4217-033F-4651-9663-1CD5BA7ACAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCD4217-033F-4651-9663-1CD5BA7ACAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCD4217-033F-4651-9663-1CD5BA7ACAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCD4217-033F-4651-9663-1CD5BA7ACAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE3E902C-9E35-49EE-B9E1-9963AB5E9E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE3E902C-9E35-49EE-B9E1-9963AB5E9E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE3E902C-9E35-49EE-B9E1-9963AB5E9E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE3E902C-9E35-49EE-B9E1-9963AB5E9E95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
