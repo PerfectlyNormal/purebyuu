@@ -6,13 +6,13 @@ namespace Purebyuu
     /// <summary>
     /// Represents a command to the embroidery machine
     /// </summary>
-    /// <remarks>
+    /// <list type="table">
     /// DST Encoding
     /// BYTE 	  7 	6 	      5 	  4 	- 	  3 	  2 	  1 	  0
     ///     1 	y+1 	y-1 	y+9 	y-9 	- 	x-9 	x+9 	x-1 	x+1
     ///     2 	y+3 	y-3 	y+27 	y-27 	- 	x-27 	x+27 	x-3 	x+3
     ///     3 	 c0 	 c1     y+81 	y-81 	- 	x-81 	x+81 	set 	set
-    /// </remarks>
+    /// </list>
     public class Command
     {
         public Command(byte[] input, bool sequinMode)
@@ -25,7 +25,7 @@ namespace Purebyuu
                 CommandType = CommandType.WilcomEnd;
                 return;
             }
-            
+
             if ((input[2] & 0b00000011) != 0b00000011)
                 throw new ArgumentException($"Input {input.ToHexString()} is not a valid command!");
 
@@ -42,7 +42,7 @@ namespace Purebyuu
             if (input[1].IsSet(1)) X -= 3;
             if (input[0].IsSet(0)) X += 1;
             if (input[0].IsSet(1)) X -= 1;
-            
+
             if (input[2].IsSet(5)) Y += 81;
             if (input[2].IsSet(4)) Y -= 81;
             if (input[1].IsSet(5)) Y += 27;
@@ -56,7 +56,7 @@ namespace Purebyuu
 
             // The Y-axis is flipped, because why not
             Y = -Y;
-            
+
             if ((input[2] & 0b11110011) == 0b11110011)
                 CommandType = CommandType.Stop;
             else if ((input[2] & 0b11000011) == 0b11000011)
@@ -68,7 +68,7 @@ namespace Purebyuu
             else
                 CommandType = CommandType.Stitch;
         }
-        
+
         public int X { get; set; }
         public int Y { get; set; }
         public CommandType CommandType { get; set; }

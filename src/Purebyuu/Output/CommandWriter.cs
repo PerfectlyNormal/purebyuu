@@ -5,7 +5,7 @@ namespace Purebyuu.Output
     /// <summary>
     /// Write each command to a string. Helpful for debugging
     /// </summary>
-    public class CommandWriter
+    public static class CommandWriter
     {
         public static string Write(DstFile input)
         {

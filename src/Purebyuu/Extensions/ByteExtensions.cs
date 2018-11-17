@@ -1,15 +1,16 @@
+using System.Collections.Generic;
 using System.Text;
 
 namespace Purebyuu.Extensions
 {
     public static class ByteExtensions
     {
-        public static string ToHexString(this byte[] ba)
+        public static string ToHexString(this IEnumerable<byte> ba)
         {
             var hex = new StringBuilder();
             foreach (var b in ba)
                 hex.AppendFormat("0x{0:x2} ", b);
-            
+
             return hex.ToString();
         }
 

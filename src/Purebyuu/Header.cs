@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -36,7 +37,7 @@ namespace Purebyuu
             }
         }
 
-        private static byte[] ReadHeader(byte[] input, int pos, int size)
+        private static byte[] ReadHeader(IEnumerable<byte> input, int pos, int size)
         {
             var data = input.Skip(pos + 3).Take(size).ToList();
             var index = data.FindIndex(b => b != 0x20);
@@ -45,7 +46,7 @@ namespace Purebyuu
             return data.ToArray();
         }
 
-        private static int ReadDiffHeader(byte[] input, int pos, int size)
+        private static int ReadDiffHeader(IEnumerable<byte> input, int pos, int size)
         {
             var data = input.Skip(pos + 3).Take(size).ToList();
             var sign = data.First() == 0x2B ? 1 : -1;
