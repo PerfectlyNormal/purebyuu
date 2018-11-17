@@ -17,10 +17,7 @@ namespace Purebyuu
     {
         public Command(byte[] input, bool sequinMode)
         {
-            if (
-                (input.Length == 1 && input[0] == 0b00011010) ||
-                (input.Length == 3 && input[0] == 0x1A && input[1] == 0 && input[2] == 0)
-                )
+            if (input[0] == 0x1A && input[1] == 0 && input[2] == 0)
             {
                 CommandType = CommandType.WilcomEnd;
                 return;
